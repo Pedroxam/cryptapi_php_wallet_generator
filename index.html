@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>CryptApi - Wallet Generator</title>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+<link rel='stylesheet' href='https://unpkg.com/materialize-stepper@3.0.0-beta.1.0.1/dist/css/mstepper.min.css'>
+<style>.btn,
+.btn-large,
+.btn-small,
+.btn-flat {
+   border-radius: 4px;
+   font-weight: 500;
+}
+
+.card:hover {
+   box-shadow: 0px 10px 35px 0px rgba(0, 0, 0, 0.18);
+}
+
+.card {
+   border-radius: 15px;
+   box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.15);
+}
+
+.form-check input {
+	opacity: 1 !important;
+	position: relative !important;
+    vertical-align: middle;
+}
+.form-check label {
+	cursor: pointer !important;
+}
+
+.form-check {
+	float: left;
+	margin-right: 22px;
+    width: 65px;
+}
+
+ul.stepper .step .step-title {
+    pointer-events: none;
+}</style>
+
+</head>
+<body>
+<div class="section grey lighten-5">
+   <div class="container">
+      <div class="row">
+         <div class="col xl4 l6 m10 s12 offset-xl4 offset-l3 offset-m1">
+            <h3 class="light center-align blue-text">Wallet Generator</h3>
+            <div class="card">
+               <div class="card-content">
+                  <ul data-method="GET" class="stepper linear">
+                     <li class="step active">
+                        <div class="step-title waves-effect waves-dark">Choose a Coin</div>
+                        <div class="step-content">
+                           <div class="row">
+                              <div class="input-field col s12 coins">
+									<div class="form-check">
+									  <input
+										type="radio"
+										class="form-check-input"
+										name="coin"
+										id="flexRadioDefault1"
+										value="btc"
+										checked
+									  />
+									  <label class="form-check-label" for="flexRadioDefault1"> BTC </label>
+									</div>
+									<div class="form-check">
+									  <input
+										type="radio"
+										class="form-check-input"
+										name="coin"
+										id="flexRadioDefault3"
+										value="eth"
+									  />
+									  <label class="form-check-label" for="flexRadioDefault3"> ETH </label>
+									</div>
+									<div class="form-check">
+									  <input
+										type="radio"
+										class="form-check-input"
+										name="coin"
+										id="flexRadioDefault4"
+										value="ltc"
+									  />
+									  <label class="form-check-label" for="flexRadioDefault4"> LTC </label>
+									</div>
+									<div class="form-check">
+									  <input
+										type="radio"
+										class="form-check-input"
+										name="coin"
+										id="flexRadioDefault5"
+										value="bch"
+									  />
+									  <label class="form-check-label" for="flexRadioDefault5"> BCH </label>
+									</div>
+									<div class="form-check">
+									  <input
+										type="radio"
+										class="form-check-input"
+										name="coin"
+										id="flexRadioDefault6"
+										value="doge"
+									  />
+									  <label class="form-check-label" for="flexRadioDefault6"> DOGE </label>
+									</div>
+									<div class="form-check">
+									  <input
+										type="radio"
+										class="form-check-input"
+										name="coin"
+										id="flexRadioDefault7"
+										value="ada"
+									  />
+									  <label class="form-check-label" for="flexRadioDefault7"> ADA </label>
+									</div>
+									<div class="form-check">
+									  <input
+										type="radio"
+										class="form-check-input"
+										name="coin"
+										id="flexRadioDefault8"
+										value="xrp"
+									  />
+									  <label class="form-check-label" for="flexRadioDefault8"> XRP </label>
+									</div>
+									<div class="form-check">
+									  <input
+										type="radio"
+										class="form-check-input"
+										name="coin"
+										id="flexRadioDefault9"
+										value="bnb"
+									  />
+									  <label class="form-check-label" for="flexRadioDefault9"> BNB </label>
+									</div>
+									<div class="form-check">
+									  <input
+										type="radio"
+										class="form-check-input"
+										name="coin"
+										id="flexRadioDefault10"
+										value="usdt"
+									  />
+									  <label class="form-check-label" for="flexRadioDefault10"> USDT </label>
+									</div>
+                              </div>
+                           </div>
+						   <input type="hidden" id="selected_coin" value="btc">
+                           <div class="step-actions">
+                              <button class="waves-effect waves-dark btn blue next-step" data-feedback="anyThing">Continue</button>
+                           </div>
+                        </div>
+                     </li>
+                     <li class="step">
+                        <div class="step-title waves-effect waves-dark">Wallet Address</div>
+                        <div class="step-content">
+                           <div class="row">
+                              <div class="input-field col s12">
+                                 <input id="wallet" name="wallet" type="text" class="validate" required autocomplete="off">
+                                 <label for="wallet">Your wallet address</label>
+                              </div>
+                           </div>
+                           <div class="step-actions">
+                              <button class="waves-effect waves-dark btn blue next-step">CONTINUE</button>
+                              <button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
+                           </div>
+                        </div>
+                     </li>
+                     <li class="step">
+                        <div class="step-title waves-effect waves-dark">Callback URL</div>
+                        <div class="step-content">
+                           <div class="row">
+                              <div class="input-field col s12">
+                                 <input id="callback" name="callback" type="url" value="http://" class="validate" required autocomplete="off">
+                                 <label for="callback">Your Callback URL</label>
+                              </div>
+                              </div>
+                           <div class="step-actions">
+                              <button class="waves-effect waves-dark btn danger next-step" data-feedback="noThing">Generate Form</button>
+                              <button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
+                           </div>
+                        </div>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+			
+			<div class="card" id="fg" style="display:none">
+               <div class="card-content">
+					<div id="result"></div>
+               </div>
+            </div>
+
+         </div>
+      </div>
+   </div>
+</div>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js'></script>
+<script src='https://unpkg.com/materialize-stepper@3.0.0-beta.1.0.1/dist/js/mstepper.min.js'></script>
+<script>
+function anyThing(destroyFeedback) {
+  setTimeout(function(){ destroyFeedback(true); }, 1500);
+}
+
+function noThing(destroyFeedback) {
+  setTimeout(function(){ 
+  
+			let coin = $('#selected_coin').val()
+			let myAddress = $('#wallet').val()
+  
+			let myCallBack = encodeURIComponent($('#callback').val());
+			
+			let API = `https://api.cryptapi.io/${coin}/create/?callback=${myCallBack}&address=${myAddress}&pending=1`;
+			
+			if(coin === 'doge' || coin === 'ada' || coin === 'xrp' || coin === 'bnb'){
+				API = `https://api.cryptapi.io/bep20/${coin}/create/?callback=${myCallBack}&address=${myAddress}&pending=1`;
+			}
+			
+			if(coin === 'usdt'){
+				API = `https://api.cryptapi.io/erc20/${coin}/create/?callback=${myCallBack}&address=${myAddress}&pending=1`;
+			}
+	
+			$('#fg').show();
+			
+			$.ajax({
+				url: API,
+				method: "GET",
+				dataType: 'json',
+				success: function (data) {
+					
+					if(data.status === 'error'){
+						$('#result').html(data.error);
+					}
+					else {
+						// $('#result').html(data.address_in);
+						$('#result').html('PHP Payment File Generated !');
+						
+const container = `<?php
+	if(isset($_GET['txid_in'])) {
+		$amount = trim($_GET['value_coin']);
+		$txid_in = trim($_GET['txid_in']);
+		file_put_contents('./list.txt', "Transaction ID: $txid_in / Amount: $amount" . " ==> ", FILE_APPEND);
+		exit('*ok*');
+	}
+?>
+						
+Send Amount to following Address:
+							
+${data.address_in}
+
+
+After Send, a new file called "list.txt" can be generate in your callback server with transaction details.
+
+`;
+						 const blob = new Blob([container], { type: 'application/html' });
+						 const a = document.createElement('a');
+						 document.body.append(a);
+						 a.download = 'payment.php';
+						 a.href = URL.createObjectURL(blob);
+						 a.click();
+						 a.remove();
+					}
+				},
+				error: function (e) {
+					$('#result').html("ERROR: " + e.responseJSON.error + "\n");
+				}
+			});
+			
+			try{
+				destroyFeedback(true);
+			} catch(e){}
+  }, 1500);
+  
+}
+
+$('.coins input').click(function(){
+	$('#selected_coin').val($(this).val());
+})
+
+var stepperDiv = document.querySelector('.stepper');
+console.log(stepperDiv);
+var stepper = new MStepper(stepperDiv);
+</script>
+</body>
+</html>
